@@ -74,6 +74,7 @@
         const seconds = now.getSeconds();
         const secondsDegree = (seconds / 60) * 360 + 90;
         secondsLine.style.transform = `rotate(${secondsDegree}deg)`;
+        console.log(seconds);
 
         const minutes = now.getMinutes();
         const minutesDegree = (minutes / 60) * 360 + 90;
@@ -82,6 +83,12 @@
         const hours = now.getHours();
         const hoursDegree = (hours / 12) * 360 + 90;
         hoursLine.style.transform = `rotate(${hoursDegree}deg)`;
+
+        if (seconds == 0) {
+          secondsLine.style.transition = "none";
+        } else {
+          secondsLine.style.transition = "all 0.05s";
+        }
       }
 
       setInterval(setDate, 1000);
